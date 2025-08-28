@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"> <!-- Set character encoding to UTF-8 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Make it responsive on mobile -->
+  <title>Ayo Afolalu Build and Test</title>
+
+  <!-- Define the style of the webpage -->
+  <style>
+    body {
+      display: flex;                /* Use flexbox layout */
+      justify-content: center;      /* Center items horizontally */
+      align-items: center;          /* Center items vertically */
+      height: 100vh;                /* Take up full viewport height */
+      margin: 0;                    /* Remove default browser margins */
+      flex-direction: column;       /* Stack items (button & my_name) vertically */
+      background-color: #94a596;    /* Set background colour to light green */
+    }
+
+    button {
+      background-color: #003b49;    /* Set button dark blue button */
+      color: white;                 /* White text */
+      padding: 10px 20px;           /* Add spacing inside the button */
+      border: none;                 /* Remove default border */
+      border-radius: 8px;           /* Rounded corners */
+      font-size: 18px;              /* Slightly larger font */
+      cursor: pointer;              /* Pointer cursor on hover */
+      font-family: Arial, Helvetica, sans-serif; /* Set Arial font */
+    }
+
+    #my_name {
+      margin-top: 30px;             /* Space above the name */
+      font-size: 18px;              /* Font size */
+      font-family: Arial, Helvetica, sans-serif; /* Same font as button (Arial) */
+      padding: 20px;                /* Padding around the text */
+      visibility: hidden;           /* Hidden by default but space is still reserved */
+    }
+  </style>
+</head>
+<body>
+  <!-- Button that toggles showing/hiding the name -->
+  <button onclick="toggleName()">Click to show/hide name</button>
+
+  <!-- The text (name) that will be shown/hidden -->
+  <div id="my_name">Ayo Afolalu</div>
+
+  <!-- Script to enabled the name to appear when the button is clicked -->
+  <script>
+    // Function to toggle visibility of the name
+    function toggleName() {
+      const output = document.getElementById("my_name"); // Get the name div
+
+      // Check current visibility state and toggle it
+      if (output.style.visibility === "hidden") {
+        output.style.visibility = "visible"; // Show the name
+      } else {
+        output.style.visibility = "hidden";  // Hide the name
+      }
+    }
+  </script>
+</body>
+</html>
