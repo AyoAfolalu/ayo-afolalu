@@ -14,7 +14,21 @@ jobs:
     steps:
       # Checkout the code from GitHub
       - checkout
+      # Restore node_modules cache
+      - restore_cache:
+          keys:
+            - v1-deps-{{ checksum "package-lock.json" }}
 
+      # Install dependencies fresh if needed
+      - run:
+          name: Install dependencies
+          command: npm ci
+
+      # Save cache for next run
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-deps-{{ checksum "package-lock.json" }}
       # Run tests
       - run:
           name: Run tests
