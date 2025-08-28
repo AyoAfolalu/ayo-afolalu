@@ -1,0 +1,27 @@
+# CircleCI configuration file
+# This file tells CircleCI how to build and test your project
+
+version: 2.1  # CircleCI configuration version
+
+# Define jobs (a "job" is a collection of steps to execute)
+jobs:
+  build:
+    # Use an official CircleCI Docker image with Node.js pre-installed
+    docker:
+      - image: cimg/node:18.16  # Change version if your project requires another Node version
+
+    # Steps inside the job
+    steps:
+      # Checkout the code from GitHub
+      - checkout
+
+      # Run tests
+      - run:
+          name: Run tests
+          command: npm test
+
+# Define workflows (workflows orchestrate jobs)
+workflows:
+  build_and_test: # Workflow name
+    jobs:
+      - build
